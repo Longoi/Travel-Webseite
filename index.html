@@ -592,70 +592,100 @@
 </a>
 
 <script>
-  let currentLang = 'vi';
-  const langLabels = { vi: '🇻🇳 VI', de: '🇩🇪 DE', en: '🇬🇧 EN', ru: '🇷🇺 RU' };
-
-  function toggleLangMenu() {
-    document.getElementById('langDropdown').classList.toggle('open');
-  }
-
-  document.addEventListener('click', function(e) {
-    const dd = document.getElementById('langDropdown');
-    if (dd && !dd.contains(e.target)) dd.classList.remove('open');
-  });
-
-  function setLang(lang) {
-    currentLang = lang;
-    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('btn-' + lang).classList.add('active');
-    document.documentElement.lang = lang;
-    const lbl = document.getElementById('langLabel');
-    if (lbl) lbl.textContent = langLabels[lang] || lang.toUpperCase();
-    document.getElementById('langDropdown').classList.remove('open');
-    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-      const val = el.getAttribute('data-' + lang);
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = val;
-      } else if (el.tagName === 'OPTION') {
-        el.textContent = val;
-      } else {
-        el.innerHTML = val;
+    let currentLang = 'vi';
+    const langLabels = { vi: '🇻🇳 VI', de: '🇩🇪 DE', en: '🇬🇧 EN', ru: '🇷🇺 RU' };
+  
+    function toggleLangMenu() {
+      document.getElementById('langDropdown').classList.toggle('open');
+    }
+  
+    document.addEventListener('click', function(e) {
+      const dd = document.getElementById('langDropdown');
+      if (dd && !dd.contains(e.target)) dd.classList.remove('open');
+    });
+  
+    function setLang(lang) {
+      currentLang = lang;
+      
+      // Aktiven Button hervorheben
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('btn-' + lang).classList.add('active');
+      
+      document.documentElement.lang = lang;
+      
+      // Globus-Label aktualisieren
+      const lbl = document.getElementById('langLabel');
+      if (lbl) lbl.textContent = langLabels[lang] || lang.toUpperCase();
+      document.getElementById('langDropdown').classList.remove('open');
+      
+      // Texte übersetzen
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        const val = el.getAttribute('data-' + lang);
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
+        } else if (el.tagName === 'OPTION') {
+          el.textContent = val;
+        } else {
+          el.innerHTML = val;
+        }
+      });
+      
+      // Spezielle Platzhalter übersetzen
+      document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
+        el.placeholder = el.getAttribute('data-placeholder-' + lang);
+      });
+      
+      // Select-Optionen aktualisieren
+      document.querySelectorAll('select option').forEach(opt => {
+        const v = opt.getAttribute('data-' + lang);
+        if (v) opt.textContent = v;
+      });
+  
+      // LOKALE SPEICHERUNG (Local Storage)
+      try {
+        localStorage.setItem('lientours_lang', lang);
+      } catch (e) {
+        // Ignorieren, falls der Nutzer Local Storage blockiert hat (z.B. im privaten Modus)
       }
-    });
-    document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
-      el.placeholder = el.getAttribute('data-placeholder-' + lang);
-    });
-    document.querySelectorAll('select option').forEach(opt => {
-      const v = opt.getAttribute('data-' + lang);
-      if (v) opt.textContent = v;
-    });
-  }
-
-  setLang('vi');
-
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), 100); });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    const name     = document.getElementById('fname').value;
-    const phone    = document.getElementById('fphone').value;
-    const email    = document.getElementById('femail').value;
-    const message  = document.getElementById('fmessage').value;
-    const tripType = document.getElementById('ftripType').value;
-    const tpl = {
-      vi: `Xin chào Lien! Tôi là ${name}.\nSĐT: ${phone}\nEmail: ${email}\nLoại tour: ${tripType}\n\n${message}`,
-      de: `Hallo Lien! Ich bin ${name}.\nTel: ${phone}\nE-Mail: ${email}\nReiseart: ${tripType}\n\n${message}`,
-      en: `Hello Lien! I'm ${name}.\nPhone: ${phone}\nEmail: ${email}\nTrip type: ${tripType}\n\n${message}`,
-      ru: `Привет, Лиен! Меня зовут ${name}.\nТел: ${phone}\nEmail: ${email}\nТип тура: ${tripType}\n\n${message}`
-    };
-    const waUrl = `https://wa.me/4915227070181?text=${encodeURIComponent(tpl[currentLang] || tpl.vi)}`;
-        document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    window.open(waUrl, '_blank');
-  }
-</script>
+    }
+  
+    // Beim Laden der Seite die gespeicherte Sprache abrufen (Fallback ist Vietnamesisch)
+    let savedLang = 'vi';
+    try {
+      const stored = localStorage.getItem('lientours_lang');
+      if (stored && ['vi', 'de', 'en', 'ru'].includes(stored)) {
+        savedLang = stored;
+      }
+    } catch (e) {
+      // Ignorieren, falls blockiert
+    }
+    setLang(savedLang);
+  
+    // Intersection Observer für Animationen
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), 100); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  
+    // Formular absenden via WhatsApp
+    function handleSubmit(e) {
+      e.preventDefault();
+      const name     = document.getElementById('fname').value;
+      const phone    = document.getElementById('fphone').value;
+      const email    = document.getElementById('femail').value;
+      const message  = document.getElementById('fmessage').value;
+      const tripType = document.getElementById('ftripType').value;
+      const tpl = {
+        vi: `Xin chào Lien! Tôi là ${name}.\nSĐT: ${phone}\nEmail: ${email}\nLoại tour: ${tripType}\n\n${message}`,
+        de: `Hallo Lien! Ich bin ${name}.\nTel: ${phone}\nE-Mail: ${email}\nReiseart: ${tripType}\n\n${message}`,
+        en: `Hello Lien! I'm ${name}.\nPhone: ${phone}\nEmail: ${email}\nTrip type: ${tripType}\n\n${message}`,
+        ru: `Привет, Лиен! Меня зовут ${name}.\nТел: ${phone}\nEmail: ${email}\nТип тура: ${tripType}\n\n${message}`
+      };
+      const waUrl = `https://wa.me/4915227070181?text=${encodeURIComponent(tpl[currentLang] || tpl.vi)}`;
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      window.open(waUrl, '_blank');
+    }
+  </script>
 </body>
 </html>
