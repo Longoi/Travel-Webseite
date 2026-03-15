@@ -161,6 +161,20 @@
     .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--gold); }
     .footer-copy { font-size: 12px; color: rgba(250,246,238,0.3); letter-spacing: 0.05em; }
     .footer-drv { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,169,110,0.5); border: 1px solid rgba(201,169,110,0.2); padding: 6px 14px; }
+    .footer-brand {
+        font-family: 'Cormorant Garamond', serif; /* Die edle, serifige Schriftart */
+        font-size: 28px; /* Etwas größer, damit es wie ein richtiges Logo wirkt */
+        font-weight: 300; /* Schön dünn und elegant, auf keinen Fall bold! */
+        color: var(--cream); /* Creme-Weiß als wunderschöner Kontrast zum goldenen Namen darüber */
+        margin-top: 2px;
+        margin-bottom: 12px;
+        letter-spacing: 0.02em;
+    }
+    .footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert alles in dieser Box */
+    }
 
     /* WHATSAPP */
     .wa-float { position: fixed; bottom: 32px; right: 32px; z-index: 999; width: 60px; height: 60px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s; animation: pulse 2s ease infinite; }
@@ -552,7 +566,10 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-name">Thuy Lien Tran</div>
+    <div class="footer-left">
+        <div class="footer-name">Thuy Lien Tran</div>
+        <div class="footer-name">Lientours</div>
+      </div>
   <div class="footer-copy" data-vi="© 2025 Thuy Lien Tran · Tư Vấn Du Lịch Độc Lập · Bad Saulgau" data-de="© 2025 Thuy Lien Tran · Unabhängige Reiseberaterin · Bad Saulgau" data-en="© 2025 Thuy Lien Tran · Independent Travel Consultant · Bad Saulgau" data-ru="© 2025 Thuy Lien Tran · Независимый консультант по туризму · Bad Saulgau"></div>
   <div class="footer-right">
     <div class="footer-socials">
