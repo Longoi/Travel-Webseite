@@ -228,10 +228,18 @@
             align-items: center;
         }
 
+        .profile-img-container {
+            text-align: center;
+        }
+
+        /* NEUES BILD-DESIGN (kein Grabstein mehr!) */
         .profile-img {
             width: 100%;
-            border-radius: 200px 200px 0 0;
-            box-shadow: 20px 20px 0px var(--boho-gold);
+            max-width: 380px; /* Bild etwas kleiner */
+            border-radius: 12px; /* Weiche Ecken statt Bogen */
+            box-shadow: -15px 15px 0px rgba(197, 168, 128, 0.4); /* Eleganter, dezenter Schatten */
+            display: inline-block;
+            object-fit: cover;
         }
 
         .about-stats {
@@ -291,16 +299,18 @@
             max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr; /* HIER IST DAS 2x2 LAYOUT */
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
         }
 
         .reason-box {
             background: var(--boho-beige);
             padding: 50px 40px;
-            text-align: center;
+            text-align: left; /* Linksbündig für Listen und Textblöcke schöner */
             border: 1px solid var(--light-border);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         
         .reason-box:hover {
@@ -310,13 +320,14 @@
 
         .reason-box h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--brand-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
             margin-top: 0;
             margin-bottom: 20px;
+            text-align: center;
         }
+        
+        .why-icon { font-size: 35px; margin-bottom: 15px; text-align: center; }
 
         .reason-box p {
             font-size: 14px;
@@ -471,7 +482,9 @@
 
     <section class="container" id="about">
         <div class="about-grid">
-            <img src="images/Profilbild.jpeg" alt="Thuy Lien Tran" class="profile-img">
+            <div class="profile-img-container">
+                <img src="images/Profilbild.jpeg" alt="Thuy Lien Tran" class="profile-img">
+            </div>
             <div>
                 <span class="section-label" data-de="Über Mich" data-vi="Về Tôi">Über Mich</span>
                 <h2 data-de="Ihre vertrauensvolle Reisepartnerin" data-vi="Người Bạn Đồng Hành Đáng Tin Cậy">Ihre vertrauensvolle Reisepartnerin</h2>
@@ -503,17 +516,17 @@
             <h2 data-de="4 Gute Gründe für Lientours" data-vi="4 Lý do chọn Lientours" style="font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px;">4 Gute Gründe für Lientours</h2>
         </div>
         <div class="reasons-grid">
-          <div class="reason-box">
-            <h3 data-de="Umfangreiches Partnernetzwerk" data-vi="Mạng lưới đối tác rộng lớn">Umfangreiches Partnernetzwerk</h3>
-            <p data-de="Ich habe Zugriff auf alle gängigen Tourismussoftwares und kann aus über 170 Reiseanbietern Ihr Angebot erstellen, ohne dabei an bestimmte Anbieter gebunden zu sein. Somit ist das Buchen einer Reise bei mir nicht teurer als im Reisebüro." data-vi="Tôi có quyền truy cập vào tất cả các phần mềm du lịch phổ biến và có thể tạo ưu đãi cho bạn từ hơn 170 nhà cung cấp dịch vụ du lịch mà không bị ràng buộc với bất kỳ nhà cung cấp cụ thể nào. Do đó, đặt chuyến đi với tôi không đắt hơn so với tại đại lý." style="font-size: 14px;">Ich habe Zugriff auf alle gängigen Tourismussoftwares und kann aus über 170 Reiseanbietern Ihr Angebot erstellen, ohne dabei an bestimmte Anbieter gebunden zu sein. Somit ist das Buchen einer Reise bei mir nicht teurer als im Reisebüro.</p>
-        </div>
+            <div class="reason-box">
+                <h3 data-de="Unabhängige Beratung – transparente und sichere Buchung" data-vi="Tư Vấn Độc Lập – Đặt Phòng Minh Bạch & An Toàn">Unabhängige Beratung – transparente und sichere Buchung</h3>
+                <p data-de="Ich finde für Sie aus einer Vielzahl von Reiseanbietern das passende Angebot – unabhängig und unkompliziert.<br><br>Sie zahlen immer den offiziellen Preis des Anbieters, ohne zusätzliche Kosten.<br><br>Alle Pauschalreisen mit Insolvenzschutz nach EU-Recht. Die Zahlung erfolgt direkt an den Reiseveranstalter." data-vi="Tôi sẽ tìm cho bạn ưu đãi phù hợp nhất từ vô số các nhà cung cấp dịch vụ du lịch – độc lập và không rắc rối.<br><br>Bạn luôn trả mức giá chính thức của nhà cung cấp, không có thêm bất kỳ chi phí nào.<br><br>Tất cả các kỳ nghỉ trọn gói đều có bảo hiểm phá sản theo luật EU. Thanh toán được thực hiện trực tiếp cho nhà điều hành tour.">Ich finde für Sie aus einer Vielzahl von Reiseanbietern das passende Angebot – unabhängig und unkompliziert.<br><br>Sie zahlen immer den offiziellen Preis des Anbieters, ohne zusätzliche Kosten.<br><br>Alle Pauschalreisen mit Insolvenzschutz nach EU-Recht. Die Zahlung erfolgt direkt an den Reiseveranstalter.</p>
+            </div>
             <div class="reason-box">
                 <h3 data-de="Kostenlose Beratung inkl. Angebotserstellung" data-vi="Tư vấn và báo giá miễn phí">Kostenlose Beratung inkl. Angebotserstellung</h3>
                 <p data-de="Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie kostenfrei. Ich erhalte lediglich eine Vermittlerprovision vom Veranstalter beim Buchen Ihrer Reise." data-vi="Toàn bộ quá trình tư vấn bao gồm cả việc lập báo giá là hoàn toàn miễn phí cho bạn. Tôi chỉ nhận được hoa hồng môi giới từ nhà tổ chức khi đặt chuyến đi của bạn.">Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie kostenfrei. Ich erhalte lediglich eine Vermittlerprovision vom Veranstalter beim Buchen Ihrer Reise.</p>
             </div>
             <div class="reason-box">
-                <h3 data-de="Mehr Service als im Reisebüro" data-vi="Dịch vụ tốt hơn tại đại lý">Mehr Service als im Reisebüro</h3>
-                <p data-de="Sie haben außerhalb der üblichen Öffnungszeiten eine Frage oder sind gerade im Urlaub und haben ein dringendes Anliegen? Kein Problem - ich bin via WhatsApp erreichbar." data-vi="Bạn có câu hỏi ngoài giờ làm việc thông thường hoặc đang đi nghỉ và có yêu cầu khẩn cấp? Không vấn đề gì - tôi luôn có thể liên lạc được qua WhatsApp.">Sie haben außerhalb der üblichen Öffnungszeiten eine Frage oder sind gerade im Urlaub und haben ein dringendes Anliegen? Kein Problem - ich bin via WhatsApp erreichbar.</p>
+                <h3 data-de="Mehr kostenlose Services" data-vi="Thêm Nhiều Dịch Vụ Miễn Phí">Mehr kostenlose Services</h3>
+                <p data-de="Unkompliziert, persönlich und individuell & kostenlos unterstütze ich Sie bei:<br>• Online-Check-in<br>• Zugtickets buchen<br>• Wegbeschreibungen und Tipps vor Ort<br>• Informationen rund um Visa<br><br>Auch abends und am Wochenende bin ich über WhatsApp für Sie erreichbar." data-vi="Đơn giản, mang tính cá nhân & hoàn toàn miễn phí, tôi hỗ trợ bạn trong việc:<br>• Check-in trực tuyến<br>• Đặt vé tàu<br>• Chỉ đường và mẹo du lịch địa phương<br>• Thông tin về Visa<br><br>Tôi cũng sẵn sàng hỗ trợ bạn qua WhatsApp vào buổi tối và cuối tuần.">Unkompliziert, persönlich und individuell & kostenlos unterstütze ich Sie bei:<br>• Online-Check-in<br>• Zugtickets buchen<br>• Wegbeschreibungen und Tipps vor Ort<br>• Informationen rund um Visa<br><br>Auch abends und am Wochenende bin ich über WhatsApp für Sie erreichbar.</p>
             </div>
             <div class="reason-box">
                 <h3 data-de="Umfassender Preisvergleich" data-vi="So sánh giá toàn diện">Umfassender Preisvergleich</h3>
@@ -529,32 +542,26 @@
       </div>
       <div class="services-grid">
           <div class="service-card">
-              <span class="service-icon">🌴</span>
               <h3 data-de="Pauschalreisen" data-vi="Du Lịch Trọn Gói">Pauschalreisen</h3>
               <p data-de="Sorgloser Urlaub – ich kümmere mich um alles von Flug bis Hotel." data-vi="Kỳ nghỉ không lo lắng — tôi lo tất cả từ vé máy bay đến khách sạn.">Sorgloser Urlaub – ich kümmere mich um alles.</p>
           </div>
           <div class="service-card">
-              <span class="service-icon">🚢</span>
               <h3 data-de="Kreuzfahrten" data-vi="Du Thuyền">Kreuzfahrten</h3>
               <p data-de="Erkunden Sie Meere auf den luxuriösesten Schiffen der Welt." data-vi="Khám phá đại dương trên những con tàu sang trọng nhất.">Erkunden Sie Meere auf den luxuriösesten Schiffen.</p>
           </div>
           <div class="service-card">
-              <span class="service-icon">🧭</span>
               <h3 data-de="Erlebnisreisen" data-vi="Hành Trình Khám Phá">Erlebnisreisen</h3>
               <p data-de="Unvergessliche Erlebnisse – speziell für Sie zusammengestellt." data-vi="Những chuyến đi đầy trải nghiệm thiết kế cho bạn.">Unvergessliche Erlebnisse – speziell für Sie zusammengestellt.</p>
           </div>
           <div class="service-card">
-              <span class="service-icon">🚵</span>
               <h3 data-de="Aktivreisen" data-vi="Du Lịch Hoạt Động">Aktivreisen</h3>
               <p data-de="Wandern, Sport, Natur – für alle, die die Welt aktiv erleben möchten." data-vi="Hiking, thể thao — khám phá thế giới một cách năng động.">Wandern, Sport, Natur – für alle, die die Welt aktiv erleben möchten.</p>
           </div>
           <div class="service-card">
-              <span class="service-icon">🗺️</span>
               <h3 data-de="Rundreisen" data-vi="Tour Vòng Quanh">Rundreisen</h3>
               <p data-de="Mehrere Destinationen auf einer Route – perfekt geplant." data-vi="Khám phá nhiều điểm đến trong một hành trình.">Mehrere Destinationen auf einer Route – perfekt geplant.</p>
           </div>
           <div class="service-card">
-              <span class="service-icon">💬</span>
               <h3 data-de="WhatsApp-Beratung" data-vi="Tư Vấn WhatsApp">WhatsApp-Beratung</h3>
               <p data-de="Unterstützung vor, während und nach der Reise – auch am Wochenende." data-vi="Hỗ trợ trước, trong và sau chuyến đi — kể cả cuối tuần.">Unterstützung vor, während und nach der Reise.</p>
           </div>
@@ -639,7 +646,7 @@
     <footer>
         <div>
             <div style="font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 5px;">Thuy Lien Tran | Lientours</div>
-            <div style="font-size: 12px; color: rgba(255,255,255,0.7);" data-de="© 2025 Thuy Lien Tran · Unabhängige Reiseberaterin" data-vi="© 2025 Thuy Lien Tran · Tư Vấn Du Lịch Độc Lập">© 2025 Thuy Lien Tran · Unabhängige Reiseberaterin</div>
+            <div style="font-size: 12px; color: rgba(255,255,255,0.7);" data-de="© 2026 Thuy Lien Tran · Unabhängige Reiseberaterin" data-vi="© 2026 Thuy Lien Tran · Tư Vấn Du Lịch Độc Lập">© 2026 Thuy Lien Tran · Unabhängige Reiseberaterin</div>
         </div>
         <div class="footer-socials">
             <span style="font-size: 11px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); padding: 5px 10px; margin-right: 15px;">DRV Mitglied</span>
