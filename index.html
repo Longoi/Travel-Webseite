@@ -281,32 +281,49 @@
         .service-icon { font-size: 30px; margin-bottom: 15px; display: block; }
         .service-card h3 { font-family: 'Playfair Display', serif; color: var(--brand-blue); font-size: 1.3rem; }
 
-        /* Why Me Grid (4 Gründe) */
-        .why-section {
+        /* 4 Gründe (2x2 Grid) */
+        .reasons-section {
             background-color: var(--white);
             padding: 80px 20px;
         }
 
-        .why-grid {
-            max-width: 1200px;
+        .reasons-grid {
+            max-width: 1100px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            grid-template-columns: 1fr 1fr; /* HIER IST DAS 2x2 LAYOUT */
+            gap: 40px;
         }
 
-        .why-item {
-            text-align: center;
-            padding: 30px 20px;
+        .reason-box {
             background: var(--boho-beige);
-            transition: transform 0.3s;
+            padding: 50px 40px;
+            text-align: center;
+            border: 1px solid var(--light-border);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .why-item:hover {
+        .reason-box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .why-icon { font-size: 35px; margin-bottom: 15px; }
+        .reason-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .reason-box p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 0;
+            color: var(--text-dark);
+        }
 
         /* Contact Section */
         .contact-grid {
@@ -405,19 +422,11 @@
 
         .wa-float:hover { transform: scale(1.1); }
 
-        @media (max-width: 1024px) {
-            .why-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
         @media (max-width: 900px) {
-            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .about-grid, .contact-grid, .reasons-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             nav { padding: 15px 20px; }
-        }
-
-        @media (max-width: 600px) {
-            .why-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -487,73 +496,70 @@
         </div>
     </section>
 
-    <section class="container" id="services">
-        <div style="text-align: center;">
-            <span class="section-label" data-de="Leistungen" data-vi="Dịch Vụ">Leistungen</span>
-            <h2 data-de="Jede Reise, Eine Mission" data-vi="Mọi Hành Trình, Một Sứ Mệnh">Jede Reise, Eine Mission</h2>
+    
+
+    <section class="reasons-section">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 data-de="4 Gute Gründe für Lientours" data-vi="4 Lý do chọn Lientours" style="font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px;">4 Gute Gründe für Lientours</h2>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <span class="service-icon">🌴</span>
-                <h3 data-de="Pauschalreisen" data-vi="Du Lịch Trọn Gói">Pauschalreisen</h3>
-                <p data-de="Sorgloser Urlaub – ich kümmere mich um alles von Flug bis Hotel." data-vi="Kỳ nghỉ không lo lắng — tôi lo tất cả từ vé máy bay đến khách sạn.">Sorgloser Urlaub – ich kümmere mich um alles.</p>
+        <div class="reasons-grid">
+          <div class="reason-box">
+            <h3 data-de="Umfangreiches Partnernetzwerk" data-vi="Mạng lưới đối tác rộng lớn">Umfangreiches Partnernetzwerk</h3>
+            <p data-de="Ich habe Zugriff auf alle gängigen Tourismussoftwares und kann aus über 170 Reiseanbietern Ihr Angebot erstellen, ohne dabei an bestimmte Anbieter gebunden zu sein. Somit ist das Buchen einer Reise bei mir nicht teurer als im Reisebüro." data-vi="Tôi có quyền truy cập vào tất cả các phần mềm du lịch phổ biến và có thể tạo ưu đãi cho bạn từ hơn 170 nhà cung cấp dịch vụ du lịch mà không bị ràng buộc với bất kỳ nhà cung cấp cụ thể nào. Do đó, đặt chuyến đi với tôi không đắt hơn so với tại đại lý." style="font-size: 14px;">Ich habe Zugriff auf alle gängigen Tourismussoftwares und kann aus über 170 Reiseanbietern Ihr Angebot erstellen, ohne dabei an bestimmte Anbieter gebunden zu sein. Somit ist das Buchen einer Reise bei mir nicht teurer als im Reisebüro.</p>
+        </div>
+            <div class="reason-box">
+                <h3 data-de="Kostenlose Beratung inkl. Angebotserstellung" data-vi="Tư vấn và báo giá miễn phí">Kostenlose Beratung inkl. Angebotserstellung</h3>
+                <p data-de="Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie kostenfrei. Ich erhalte lediglich eine Vermittlerprovision vom Veranstalter beim Buchen Ihrer Reise." data-vi="Toàn bộ quá trình tư vấn bao gồm cả việc lập báo giá là hoàn toàn miễn phí cho bạn. Tôi chỉ nhận được hoa hồng môi giới từ nhà tổ chức khi đặt chuyến đi của bạn.">Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie kostenfrei. Ich erhalte lediglich eine Vermittlerprovision vom Veranstalter beim Buchen Ihrer Reise.</p>
             </div>
-            <div class="service-card">
-                <span class="service-icon">🚢</span>
-                <h3 data-de="Kreuzfahrten" data-vi="Du Thuyền">Kreuzfahrten</h3>
-                <p data-de="Erkunden Sie Meere auf den luxuriösesten Schiffen der Welt." data-vi="Khám phá đại dương trên những con tàu sang trọng nhất.">Erkunden Sie Meere auf den luxuriösesten Schiffen.</p>
+            <div class="reason-box">
+                <h3 data-de="Mehr Service als im Reisebüro" data-vi="Dịch vụ tốt hơn tại đại lý">Mehr Service als im Reisebüro</h3>
+                <p data-de="Sie haben außerhalb der üblichen Öffnungszeiten eine Frage oder sind gerade im Urlaub und haben ein dringendes Anliegen? Kein Problem - ich bin via WhatsApp erreichbar." data-vi="Bạn có câu hỏi ngoài giờ làm việc thông thường hoặc đang đi nghỉ và có yêu cầu khẩn cấp? Không vấn đề gì - tôi luôn có thể liên lạc được qua WhatsApp.">Sie haben außerhalb der üblichen Öffnungszeiten eine Frage oder sind gerade im Urlaub und haben ein dringendes Anliegen? Kein Problem - ich bin via WhatsApp erreichbar.</p>
             </div>
-            <div class="service-card">
-                <span class="service-icon">🧭</span>
-                <h3 data-de="Erlebnisreisen" data-vi="Hành Trình Khám Phá">Erlebnisreisen</h3>
-                <p data-de="Unvergessliche Erlebnisse – speziell für Sie zusammengestellt." data-vi="Những chuyến đi đầy trải nghiệm thiết kế cho bạn.">Unvergessliche Erlebnisse – speziell für Sie zusammengestellt.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🚵</span>
-                <h3 data-de="Aktivreisen" data-vi="Du Lịch Hoạt Động">Aktivreisen</h3>
-                <p data-de="Wandern, Sport, Natur – für alle, die die Welt aktiv erleben möchten." data-vi="Hiking, thể thao — khám phá thế giới một cách năng động.">Wandern, Sport, Natur – für alle, die die Welt aktiv erleben möchten.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🗺️</span>
-                <h3 data-de="Rundreisen" data-vi="Tour Vòng Quanh">Rundreisen</h3>
-                <p data-de="Mehrere Destinationen auf einer Route – perfekt geplant." data-vi="Khám phá nhiều điểm đến trong một hành trình.">Mehrere Destinationen auf einer Route – perfekt geplant.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">💬</span>
-                <h3 data-de="WhatsApp-Beratung" data-vi="Tư Vấn WhatsApp">WhatsApp-Beratung</h3>
-                <p data-de="Unterstützung vor, während und nach der Reise – auch am Wochenende." data-vi="Hỗ trợ trước, trong và sau chuyến đi — kể cả cuối tuần.">Unterstützung vor, während und nach der Reise.</p>
+            <div class="reason-box">
+                <h3 data-de="Umfassender Preisvergleich" data-vi="So sánh giá toàn diện">Umfassender Preisvergleich</h3>
+                <p data-de="Ich suche unter Berücksichtigung unterschiedlicher Faktoren (z.B. Hin- & Rückreise, Non-Stop-Flug oder Flug mit Umsteigen, Zimmerkategorie, Service und Storno- bzw. Umbuchungsbedingungen des Reiseveranstalters) das preiswerteste Angebot." data-vi="Tôi tìm kiếm ưu đãi rẻ nhất cho bạn dựa trên nhiều yếu tố khác nhau (ví dụ: hành trình khứ hồi, chuyến bay thẳng hoặc nối chuyến, hạng phòng, dịch vụ và điều kiện hủy/đổi lịch của nhà điều hành tour).">Ich suche unter Berücksichtigung unterschiedlicher Faktoren (z.B. Hin- & Rückreise, Non-Stop-Flug oder Flug mit Umsteigen, Zimmerkategorie, Service und Storno- bzw. Umbuchungsbedingungen des Reiseveranstalters) das preiswerteste Angebot.</p>
             </div>
         </div>
     </section>
 
-    <section class="why-section" id="why">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <span class="section-label" data-de="Warum Ich?" data-vi="Tại Sao Chọn Tôi?">Warum Ich?</span>
-            <h2 data-de="4 Gute Gründe für Lientours" data-vi="4 Lý Do Chọn Lientours">4 Gute Gründe für Lientours</h2>
-        </div>
-        <div class="why-grid">
-            <div class="why-item">
-                <div class="why-icon">💻</div>
-                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Kooperation mit Amondo" data-vi="Đối Tác Của Amondo">Kooperation mit Amondo</h3>
-                <p data-de="Ich habe Zugriff auf alle gängigen Tourismussoftwares und über 170 Reiseanbieter. Buchen ist bei mir nicht teurer als im Reisebüro." data-vi="Tôi có quyền truy cập hơn 170 nhà cung cấp dịch vụ du lịch. Giá đặt phòng không đắt hơn so với tại đại lý." style="font-size: 14px;">Ich habe Zugriff auf alle gängigen Tourismussoftwares und über 170 Reiseanbieter. Buchen ist bei mir nicht teurer als im Reisebüro.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">💶</div>
-                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Kostenlose Beratung" data-vi="Tư Vấn Miễn Phí">Kostenlose Beratung</h3>
-                <p data-de="Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie komplett kostenfrei." data-vi="Toàn bộ quá trình tư vấn và lập báo giá là hoàn toàn miễn phí cho bạn." style="font-size: 14px;">Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie komplett kostenfrei.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">📱</div>
-                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Mehr Service" data-vi="Dịch Vụ Tận Tâm">Mehr Service</h3>
-                <p data-de="Fragen außerhalb der Öffnungszeiten oder im Urlaub? Kein Problem - ich bin via WhatsApp immer erreichbar." data-vi="Bạn có câu hỏi ngoài giờ làm việc hoặc đang đi nghỉ? Không sao - tôi luôn sẵn sàng qua WhatsApp." style="font-size: 14px;">Fragen außerhalb der Öffnungszeiten oder im Urlaub? Kein Problem - ich bin via WhatsApp immer erreichbar.</p>
-            </div>
-            <div class="why-item">
-                <div class="why-icon">⚖️</div>
-                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Preisvergleich" data-vi="So Sánh Giá">Preisvergleich</h3>
-                <p data-de="Ich suche unter Berücksichtigung unterschiedlicher Faktoren das preiswerteste und beste Angebot für Sie heraus." data-vi="Tôi tìm kiếm ưu đãi có giá trị tốt nhất cho bạn dựa trên nhiều yếu tố khác nhau." style="font-size: 14px;">Ich suche unter Berücksichtigung unterschiedlicher Faktoren das preiswerteste und beste Angebot für Sie heraus.</p>
-            </div>
-        </div>
-    </section>
+    <section class="container" id="services">
+      <div style="text-align: center;">
+          <span class="section-label" data-de="Leistungen" data-vi="Dịch Vụ">Leistungen</span>
+          <h2 data-de="Jede Reise, Eine Mission" data-vi="Mọi Hành Trình, Một Sứ Mệnh">Jede Reise, Eine Mission</h2>
+      </div>
+      <div class="services-grid">
+          <div class="service-card">
+              <span class="service-icon">🌴</span>
+              <h3 data-de="Pauschalreisen" data-vi="Du Lịch Trọn Gói">Pauschalreisen</h3>
+              <p data-de="Sorgloser Urlaub – ich kümmere mich um alles von Flug bis Hotel." data-vi="Kỳ nghỉ không lo lắng — tôi lo tất cả từ vé máy bay đến khách sạn.">Sorgloser Urlaub – ich kümmere mich um alles.</p>
+          </div>
+          <div class="service-card">
+              <span class="service-icon">🚢</span>
+              <h3 data-de="Kreuzfahrten" data-vi="Du Thuyền">Kreuzfahrten</h3>
+              <p data-de="Erkunden Sie Meere auf den luxuriösesten Schiffen der Welt." data-vi="Khám phá đại dương trên những con tàu sang trọng nhất.">Erkunden Sie Meere auf den luxuriösesten Schiffen.</p>
+          </div>
+          <div class="service-card">
+              <span class="service-icon">🧭</span>
+              <h3 data-de="Erlebnisreisen" data-vi="Hành Trình Khám Phá">Erlebnisreisen</h3>
+              <p data-de="Unvergessliche Erlebnisse – speziell für Sie zusammengestellt." data-vi="Những chuyến đi đầy trải nghiệm thiết kế cho bạn.">Unvergessliche Erlebnisse – speziell für Sie zusammengestellt.</p>
+          </div>
+          <div class="service-card">
+              <span class="service-icon">🚵</span>
+              <h3 data-de="Aktivreisen" data-vi="Du Lịch Hoạt Động">Aktivreisen</h3>
+              <p data-de="Wandern, Sport, Natur – für alle, die die Welt aktiv erleben möchten." data-vi="Hiking, thể thao — khám phá thế giới một cách năng động.">Wandern, Sport, Natur – für alle, die die Welt aktiv erleben möchten.</p>
+          </div>
+          <div class="service-card">
+              <span class="service-icon">🗺️</span>
+              <h3 data-de="Rundreisen" data-vi="Tour Vòng Quanh">Rundreisen</h3>
+              <p data-de="Mehrere Destinationen auf einer Route – perfekt geplant." data-vi="Khám phá nhiều điểm đến trong một hành trình.">Mehrere Destinationen auf einer Route – perfekt geplant.</p>
+          </div>
+          <div class="service-card">
+              <span class="service-icon">💬</span>
+              <h3 data-de="WhatsApp-Beratung" data-vi="Tư Vấn WhatsApp">WhatsApp-Beratung</h3>
+              <p data-de="Unterstützung vor, während und nach der Reise – auch am Wochenende." data-vi="Hỗ trợ trước, trong và sau chuyến đi — kể cả cuối tuần.">Unterstützung vor, während und nach der Reise.</p>
+          </div>
+      </div>
+  </section>
 
     <section class="container" id="contact">
         <div class="contact-grid">
@@ -647,14 +653,13 @@
     </a>
 
     <script>
-        let currentLang = 'de'; // Standard ist Deutsch
+        let currentLang = 'de'; 
         const langLabels = { vi: '🇻🇳 VI', de: '🇩🇪 DE' };
       
         function toggleLangMenu() {
             document.getElementById('langDropdown').classList.toggle('open');
         }
       
-        // Klick außerhalb schließt das Menü
         document.addEventListener('click', function(e) {
             const dd = document.getElementById('langDropdown');
             if (dd && !dd.contains(e.target)) dd.classList.remove('open');
@@ -664,12 +669,10 @@
             currentLang = lang;
             document.documentElement.lang = lang;
             
-            // Button Label Update
             const lbl = document.getElementById('langLabel');
             if (lbl) lbl.textContent = langLabels[lang];
             document.getElementById('langDropdown').classList.remove('open');
             
-            // Texte ersetzen
             document.querySelectorAll('[data-' + lang + ']').forEach(el => {
                 const val = el.getAttribute('data-' + lang);
                 if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
@@ -681,7 +684,6 @@
                 }
             });
             
-            // Spezielle Platzhalter für das Formular
             document.querySelectorAll('[data-placeholder-' + lang + ']').forEach(el => {
                 el.placeholder = el.getAttribute('data-placeholder-' + lang);
             });
@@ -691,19 +693,17 @@
             } catch (e) {}
         }
       
-        // Beim Laden der Seite Sprache prüfen
         try {
             const stored = localStorage.getItem('lientours_lang');
             if (stored && ['vi', 'de'].includes(stored)) {
                 setLang(stored);
             } else {
-                setLang('de'); // Fallback Deutsch
+                setLang('de'); 
             }
         } catch (e) {
             setLang('de');
         }
       
-        // WhatsApp Formular Logik
         function handleSubmit(e) {
             e.preventDefault();
             const name     = document.getElementById('fname').value;
