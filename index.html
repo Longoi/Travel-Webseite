@@ -281,7 +281,7 @@
         .service-icon { font-size: 30px; margin-bottom: 15px; display: block; }
         .service-card h3 { font-family: 'Playfair Display', serif; color: var(--brand-blue); font-size: 1.3rem; }
 
-        /* Why Me Grid */
+        /* Why Me Grid (4 Gründe) */
         .why-section {
             background-color: var(--white);
             padding: 80px 20px;
@@ -291,14 +291,19 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
         }
 
         .why-item {
             text-align: center;
-            padding: 30px;
+            padding: 30px 20px;
             background: var(--boho-beige);
+            transition: transform 0.3s;
+        }
+        
+        .why-item:hover {
+            transform: translateY(-5px);
         }
 
         .why-icon { font-size: 35px; margin-bottom: 15px; }
@@ -400,11 +405,19 @@
 
         .wa-float:hover { transform: scale(1.1); }
 
+        @media (max-width: 1024px) {
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
         @media (max-width: 900px) {
             .about-grid, .contact-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             nav { padding: 15px 20px; }
+        }
+
+        @media (max-width: 600px) {
+            .why-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -516,23 +529,28 @@
     <section class="why-section" id="why">
         <div style="text-align: center; margin-bottom: 40px;">
             <span class="section-label" data-de="Warum Ich?" data-vi="Tại Sao Chọn Tôi?">Warum Ich?</span>
-            <h2 data-de="Mein Unterschied" data-vi="Sự Khác Biệt Của Tôi">Mein Unterschied</h2>
+            <h2 data-de="4 Gute Gründe für Lientours" data-vi="4 Lý Do Chọn Lientours">4 Gute Gründe für Lientours</h2>
         </div>
         <div class="why-grid">
             <div class="why-item">
-                <div class="why-icon">🌏</div>
-                <h3 style="font-family:'Playfair Display', serif;" data-de="Zweisprachig" data-vi="Đa Ngôn Ngữ">Zweisprachig</h3>
-                <p data-de="Ich berate auf Vietnamesisch und Deutsch." data-vi="Tôi tư vấn bằng tiếng Việt và tiếng Đức.">Ich berate auf Vietnamesisch und Deutsch.</p>
+                <div class="why-icon">💻</div>
+                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Kooperation mit Amondo" data-vi="Đối Tác Của Amondo">Kooperation mit Amondo</h3>
+                <p data-de="Ich habe Zugriff auf alle gängigen Tourismussoftwares und über 170 Reiseanbieter. Buchen ist bei mir nicht teurer als im Reisebüro." data-vi="Tôi có quyền truy cập hơn 170 nhà cung cấp dịch vụ du lịch. Giá đặt phòng không đắt hơn so với tại đại lý." style="font-size: 14px;">Ich habe Zugriff auf alle gängigen Tourismussoftwares und über 170 Reiseanbieter. Buchen ist bei mir nicht teurer als im Reisebüro.</p>
             </div>
             <div class="why-item">
-                <div class="why-icon">🤝</div>
-                <h3 style="font-family:'Playfair Display', serif;" data-de="Persönlich & Individuell" data-vi="Cá Nhân Hóa">Persönlich & Individuell</h3>
-                <p data-de="Jede Reise wird individuell für Sie gestaltet, passend zum Budget." data-vi="Mỗi hành trình được tạo ra riêng cho bạn.">Jede Reise wird individuell für Sie gestaltet.</p>
+                <div class="why-icon">💶</div>
+                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Kostenlose Beratung" data-vi="Tư Vấn Miễn Phí">Kostenlose Beratung</h3>
+                <p data-de="Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie komplett kostenfrei." data-vi="Toàn bộ quá trình tư vấn và lập báo giá là hoàn toàn miễn phí cho bạn." style="font-size: 14px;">Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie komplett kostenfrei.</p>
             </div>
             <div class="why-item">
                 <div class="why-icon">📱</div>
-                <h3 style="font-family:'Playfair Display', serif;" data-de="Immer Erreichbar" data-vi="Luôn Sẵn Sàng">Immer Erreichbar</h3>
-                <p data-de="Per WhatsApp bin ich immer für Sie da – auch an Feiertagen." data-vi="Qua WhatsApp, tôi luôn có mặt cho bạn kể cả ngày lễ.">Per WhatsApp bin ich immer für Sie da.</p>
+                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Mehr Service" data-vi="Dịch Vụ Tận Tâm">Mehr Service</h3>
+                <p data-de="Fragen außerhalb der Öffnungszeiten oder im Urlaub? Kein Problem - ich bin via WhatsApp immer erreichbar." data-vi="Bạn có câu hỏi ngoài giờ làm việc hoặc đang đi nghỉ? Không sao - tôi luôn sẵn sàng qua WhatsApp." style="font-size: 14px;">Fragen außerhalb der Öffnungszeiten oder im Urlaub? Kein Problem - ich bin via WhatsApp immer erreichbar.</p>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">⚖️</div>
+                <h3 style="font-family:'Playfair Display', serif; font-size: 1.1rem; color: var(--brand-blue);" data-de="Preisvergleich" data-vi="So Sánh Giá">Preisvergleich</h3>
+                <p data-de="Ich suche unter Berücksichtigung unterschiedlicher Faktoren das preiswerteste und beste Angebot für Sie heraus." data-vi="Tôi tìm kiếm ưu đãi có giá trị tốt nhất cho bạn dựa trên nhiều yếu tố khác nhau." style="font-size: 14px;">Ich suche unter Berücksichtigung unterschiedlicher Faktoren das preiswerteste und beste Angebot für Sie heraus.</p>
             </div>
         </div>
     </section>
