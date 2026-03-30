@@ -232,12 +232,11 @@
             text-align: center;
         }
 
-        /* NEUES BILD-DESIGN (kein Grabstein mehr!) */
         .profile-img {
             width: 100%;
-            max-width: 380px; /* Bild etwas kleiner */
-            border-radius: 12px; /* Weiche Ecken statt Bogen */
-            box-shadow: -15px 15px 0px rgba(197, 168, 128, 0.4); /* Eleganter, dezenter Schatten */
+            max-width: 380px; 
+            border-radius: 12px; 
+            box-shadow: -15px 15px 0px rgba(197, 168, 128, 0.4); 
             display: inline-block;
             object-fit: cover;
         }
@@ -306,7 +305,7 @@
         .reason-box {
             background: var(--boho-beige);
             padding: 50px 40px;
-            text-align: left; /* Linksbündig für Listen und Textblöcke schöner */
+            text-align: left; 
             border: 1px solid var(--light-border);
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
@@ -435,6 +434,10 @@
 
         @media (max-width: 900px) {
             .about-grid, .contact-grid, .reasons-grid { grid-template-columns: 1fr; }
+            /* Bei mobilen Geräten kehren wir die Reihenfolge um, damit das Bild oben und Text unten ist (optional) */
+            .about-grid div:first-child { order: 2; }
+            .about-grid div:last-child { order: 1; }
+            
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             nav { padding: 15px 20px; }
@@ -467,11 +470,11 @@
     </nav>
 
     <header class="hero">
-        <span class="hero-eyebrow" data-de="Persönliche Reiseberatung" data-vi="Tư Vấn Du Lịch Cá Nhân">Persönliche Reiseberatung</span>
+        <span class="hero-eyebrow" data-de="Persönliche Reiseberatung">Persönliche Reiseberatung</span>
         <h1>Thuy Lien Tran</h1>
-        <p class="hero-tagline" data-de="Ihre Reise — mit Herzblut geplant" data-vi="Hành trình của bạn — lên kế hoạch với tâm huyết">Ihre Reise — mit Herzblut geplant</p>
-        <p class="hero-desc" data-de="Mit jahrelanger Erfahrung und echter Reiseleidenschaft finde ich für Sie die perfekte Reise – von Pauschalreisen bis Kreuzfahrten, von Erlebnistouren bis Weltreisen. Ich begleite Sie vor, während und nach der Reise." data-vi="Với nhiều năm kinh nghiệm và niềm đam mê du lịch, tôi giúp bạn tìm chuyến đi hoàn hảo — từ nghỉ dưỡng trọn gói đến du thuyền sang trọng. Tôi đồng hành cùng bạn trước, trong và sau chuyến đi.">Mit jahrelanger Erfahrung und echter Reiseleidenschaft finde ich für Sie die perfekte Reise – von Pauschalreisen bis Kreuzfahrten, von Erlebnistouren bis Weltreisen.</p>
-        <a href="#contact" class="btn" data-de="Jetzt Anfragen" data-vi="Liên Hệ Ngay">Jetzt Anfragen</a>
+        <p class="hero-tagline" data-de="Ihre Reise — mit Herzblut geplant">Ihre Reise — mit Herzblut geplant</p>
+        <p class="hero-desc" data-de="Mit jahrelanger Erfahrung und echter Reiseleidenschaft wird für Sie die perfekte Reise gefunden – von Pauschalreisen über Kreuzfahrten bis zu Erlebnistouren und Weltreisen. Begleitung erfolgt vor, während und nach Ihrer Reise, damit alles unbeschwert bleibt.">Mit jahrelanger Erfahrung und echter Reiseleidenschaft wird für Sie die perfekte Reise gefunden – von Pauschalreisen über Kreuzfahrten bis zu Erlebnistouren und Weltreisen. Begleitung erfolgt vor, während und nach Ihrer Reise, damit alles unbeschwert bleibt.</p>
+        <a href="#contact" class="btn" data-de="Jetzt Anfragen">Jetzt Anfragen</a>
     </header>
 
     <div class="langs-strip">
@@ -482,18 +485,15 @@
 
     <section class="container" id="about">
         <div class="about-grid">
-            <div class="profile-img-container">
-                <img src="images/Profilbild.jpeg" alt="Thuy Lien Tran" class="profile-img">
-            </div>
             <div>
-                <span class="section-label" data-de="Über Mich" data-vi="Về Tôi">Über Mich</span>
-                <h2 data-de="Ihre vertrauensvolle Reisepartnerin" data-vi="Người Bạn Đồng Hành Đáng Tin Cậy">Ihre vertrauensvolle Reisepartnerin</h2>
-                <p data-de="Ich glaube, dass jede Reise ihre eigene Geschichte hat. Deshalb nehme ich mir Zeit, Ihren Wunschurlaub zu verstehen und die perfekte Reise zu gestalten – ob Familienurlaub oder Abenteuerreise." data-vi="Tôi tin rằng mỗi chuyến đi là một câu chuyện riêng. Tôi dành thời gian lắng nghe ước mơ của bạn để tạo ra hành trình phù hợp nhất.">Ich glaube, dass jede Reise ihre eigene Geschichte hat. Deshalb nehme ich mir Zeit, Ihren Wunschurlaub zu verstehen und die perfekte Reise zu gestalten.</p>
-                <p data-de="Ich bin für Sie über WhatsApp erreichbar – auch am Wochenende – vor, während und nach Ihrer Reise." data-vi="Tôi luôn sẵn sàng hỗ trợ bạn qua WhatsApp — kể cả cuối tuần — trong suốt hành trình.">Ich bin für Sie über WhatsApp erreichbar – auch am Wochenende.</p>
+                <span class="section-label" data-de="Über Mich – Wer ich bin">Über Mich – Wer ich bin</span>
+                <h2 data-de="Ihre vertrauensvolle Reisepartnerin">Ihre vertrauensvolle Reisepartnerin</h2>
+                <p data-de="Nach meinem Abschluss am Travel College of Touristik mit Auszeichnung kombiniere ich fundiertes Fachwissen mit meiner umfangreichen Reiseerfahrung aus über 70 Ländern und fast 20 Kreuzfahrten. Jede Reise plane ich mit Herzblut und persönlicher Sorgfalt, sodass Urlaubsträume unbeschwert erlebt werden können.">Nach meinem Abschluss am Travel College of Touristik mit Auszeichnung kombiniere ich fundiertes Fachwissen mit meiner umfangreichen Reiseerfahrung aus über 70 Ländern und fast 20 Kreuzfahrten. Jede Reise plane ich mit Herzblut und persönlicher Sorgfalt, sodass Urlaubsträume unbeschwert erlebt werden können.</p>
+                <p data-de="Dank meiner Kenntnisse in vier Sprachen stehe ich abends und am Wochenende über WhatsApp jederzeit zur Verfügung. Auch während der Reise beantworte ich Fragen, gebe praktische Tipps und helfe bei Problemen – für ein sorgenfreies Reiseerlebnis.">Dank meiner Kenntnisse in vier Sprachen stehe ich abends und am Wochenende über WhatsApp jederzeit zur Verfügung. Auch während der Reise beantworte ich Fragen, gebe praktische Tipps und helfe bei Problemen – für ein sorgenfreies Reiseerlebnis.</p>
                 
                 <div class="about-stats">
                     <div>
-                        <div class="stat-num">2</div>
+                        <div class="stat-num">4</div>
                         <div class="stat-label" data-de="Sprachen" data-vi="Ngôn ngữ">Sprachen</div>
                     </div>
                     <div>
@@ -501,36 +501,38 @@
                         <div class="stat-label" data-de="Tage Erreichbar" data-vi="Hỗ trợ mỗi ngày">Tage Erreichbar</div>
                     </div>
                     <div>
-                        <div class="stat-num">∞</div>
-                        <div class="stat-label" data-de="Destinationen" data-vi="Điểm đến">Destinationen</div>
+                        <div class="stat-num">>70</div>
+                        <div class="stat-label" data-de="Bereiste Länder" data-vi="Quốc gia đã đến">Bereiste Länder</div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="profile-img-container">
+                <img src="images/Profilbild.jpeg" alt="Thuy Lien Tran" class="profile-img">
             </div>
         </div>
     </section>
 
-    
-
     <section class="reasons-section">
         <div style="text-align: center; margin-bottom: 50px;">
-            <h2 data-de="4 Gute Gründe für Lientours" data-vi="4 Lý do chọn Lientours" style="font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px;">4 Gute Gründe für Lientours</h2>
+            <h2 data-de="Ihre Reiseplanung in 4 Schritten" style="font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px;">Ihre Reiseplanung in 4 Schritten</h2>
         </div>
         <div class="reasons-grid">
             <div class="reason-box">
-                <h3 data-de="Unabhängige Beratung – transparente und sichere Buchung" data-vi="Tư Vấn Độc Lập – Đặt Phòng Minh Bạch & An Toàn">Unabhängige Beratung – transparente und sichere Buchung</h3>
-                <p data-de="Ich finde für Sie aus einer Vielzahl von Reiseanbietern das passende Angebot – unabhängig und unkompliziert.<br><br>Sie zahlen immer den offiziellen Preis des Anbieters, ohne zusätzliche Kosten.<br><br>Alle Pauschalreisen mit Insolvenzschutz nach EU-Recht. Die Zahlung erfolgt direkt an den Reiseveranstalter." data-vi="Tôi sẽ tìm cho bạn ưu đãi phù hợp nhất từ vô số các nhà cung cấp dịch vụ du lịch – độc lập và không rắc rối.<br><br>Bạn luôn trả mức giá chính thức của nhà cung cấp, không có thêm bất kỳ chi phí nào.<br><br>Tất cả các kỳ nghỉ trọn gói đều có bảo hiểm phá sản theo luật EU. Thanh toán được thực hiện trực tiếp cho nhà điều hành tour.">Ich finde für Sie aus einer Vielzahl von Reiseanbietern das passende Angebot – unabhängig und unkompliziert.<br><br>Sie zahlen immer den offiziellen Preis des Anbieters, ohne zusätzliche Kosten.<br><br>Alle Pauschalreisen mit Insolvenzschutz nach EU-Recht. Die Zahlung erfolgt direkt an den Reiseveranstalter.</p>
+                <h3 data-de="Beratung – Persönliche Reiseplanung">Beratung – Persönliche Reiseplanung</h3>
+                <p data-de="Ich nehme mir Zeit, Ihre Wünsche zu verstehen und den Traumurlaub individuell zu gestalten. Gemeinsam wählen wir das passende Reiseziel und die optimale Reiseart. Beratung und Angebotserstellung erfolgen kostenfrei und unverbindlich.">Ich nehme mir Zeit, Ihre Wünsche zu verstehen und den Traumurlaub individuell zu gestalten. Gemeinsam wählen wir das passende Reiseziel und die optimale Reiseart. Beratung und Angebotserstellung erfolgen kostenfrei und unverbindlich.</p>
             </div>
             <div class="reason-box">
-                <h3 data-de="Kostenlose Beratung inkl. Angebotserstellung" data-vi="Tư vấn và báo giá miễn phí">Kostenlose Beratung inkl. Angebotserstellung</h3>
-                <p data-de="Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie kostenfrei. Ich erhalte lediglich eine Vermittlerprovision vom Veranstalter beim Buchen Ihrer Reise." data-vi="Toàn bộ quá trình tư vấn bao gồm cả việc lập báo giá là hoàn toàn miễn phí cho bạn. Tôi chỉ nhận được hoa hồng môi giới từ nhà tổ chức khi đặt chuyến đi của bạn.">Der komplette Beratungsprozess inkl. Angebotserstellung ist für Sie kostenfrei. Ich erhalte lediglich eine Vermittlerprovision vom Veranstalter beim Buchen Ihrer Reise.</p>
+                <h3 data-de="Tour suchen – Passendes Angebot finden">Tour suchen – Passendes Angebot finden</h3>
+                <p data-de="Es werden zahlreiche Reiseanbieter durchsucht, unter Berücksichtigung von Flug, Unterkunft, Zimmerkategorie, Transfer, Lage des Hotels, Service sowie Storno- und Umbuchungsbedingungen. Alle Optionen werden transparent, fair und leicht verständlich dargestellt.">Es werden zahlreiche Reiseanbieter durchsucht, unter Berücksichtigung von Flug, Unterkunft, Zimmerkategorie, Transfer, Lage des Hotels, Service sowie Storno- und Umbuchungsbedingungen. Alle Optionen werden transparent, fair und leicht verständlich dargestellt.</p>
             </div>
             <div class="reason-box">
-                <h3 data-de="Mehr kostenlose Services" data-vi="Thêm Nhiều Dịch Vụ Miễn Phí">Mehr kostenlose Services</h3>
-                <p data-de="Unkompliziert, persönlich und individuell & kostenlos unterstütze ich Sie bei:<br>• Online-Check-in<br>• Zugtickets buchen<br>• Wegbeschreibungen und Tipps vor Ort<br>• Informationen rund um Visa<br><br>Auch abends und am Wochenende bin ich über WhatsApp für Sie erreichbar." data-vi="Đơn giản, mang tính cá nhân & hoàn toàn miễn phí, tôi hỗ trợ bạn trong việc:<br>• Check-in trực tuyến<br>• Đặt vé tàu<br>• Chỉ đường và mẹo du lịch địa phương<br>• Thông tin về Visa<br><br>Tôi cũng sẵn sàng hỗ trợ bạn qua WhatsApp vào buổi tối và cuối tuần.">Unkompliziert, persönlich und individuell & kostenlos unterstütze ich Sie bei:<br>• Online-Check-in<br>• Zugtickets buchen<br>• Wegbeschreibungen und Tipps vor Ort<br>• Informationen rund um Visa<br><br>Auch abends und am Wochenende bin ich über WhatsApp für Sie erreichbar.</p>
+                <h3 data-de="Tour auswählen – Das passende Angebot">Tour auswählen – Das passende Angebot</h3>
+                <p data-de="Das preiswerteste und passende Angebot wird ausgewählt. Unterstützung erfolgt bei allen Fragen zu Zug zum Flug, Mietwagen, Transfer, Parken, Ausflügen, Getränkepaketen und Reiseversicherung – unkompliziert, individuell und zuverlässig.">Das preiswerteste und passende Angebot wird ausgewählt. Unterstützung erfolgt bei allen Fragen zu Zug zum Flug, Mietwagen, Transfer, Parken, Ausflügen, Getränkepaketen und Reiseversicherung – unkompliziert, individuell und zuverlässig.</p>
             </div>
             <div class="reason-box">
-                <h3 data-de="Umfassender Preisvergleich" data-vi="So sánh giá toàn diện">Umfassender Preisvergleich</h3>
-                <p data-de="Ich suche unter Berücksichtigung unterschiedlicher Faktoren (z.B. Hin- & Rückreise, Non-Stop-Flug oder Flug mit Umsteigen, Zimmerkategorie, Service und Storno- bzw. Umbuchungsbedingungen des Reiseveranstalters) das preiswerteste Angebot." data-vi="Tôi tìm kiếm ưu đãi rẻ nhất cho bạn dựa trên nhiều yếu tố khác nhau (ví dụ: hành trình khứ hồi, chuyến bay thẳng hoặc nối chuyến, hạng phòng, dịch vụ và điều kiện hủy/đổi lịch của nhà điều hành tour).">Ich suche unter Berücksichtigung unterschiedlicher Faktoren (z.B. Hin- & Rückreise, Non-Stop-Flug oder Flug mit Umsteigen, Zimmerkategorie, Service und Storno- bzw. Umbuchungsbedingungen des Reiseveranstalters) das preiswerteste Angebot.</p>
+                <h3 data-de="Buchung & Zahlung – Sicher und transparent">Buchung & Zahlung – Sicher und transparent</h3>
+                <p data-de="Die Buchung erfolgt direkt beim Reiseveranstalter, sodass Sie den Preis direkt an den Veranstalter zahlen und keine zusätzlichen Kosten anfallen. Alle Pauschalreisen sind gemäß EU-Recht abgesichert, sodass die Reise rundum sicher geplant ist. Zusätzlich werden Mietwagen, Transfer, Parken, Ausflüge, Getränkepaket und Reiseversicherung verglichen, damit der Start in den Urlaub sorglos gelingt.">Die Buchung erfolgt direkt beim Reiseveranstalter, sodass Sie den Preis direkt an den Veranstalter zahlen und keine zusätzlichen Kosten anfallen. Alle Pauschalreisen sind gemäß EU-Recht abgesichert, sodass die Reise rundum sicher geplant ist. Zusätzlich werden Mietwagen, Transfer, Parken, Ausflüge, Getränkepaket und Reiseversicherung verglichen, damit der Start in den Urlaub sorglos gelingt.</p>
             </div>
         </div>
     </section>
@@ -543,11 +545,11 @@
       <div class="services-grid">
           <div class="service-card">
               <h3 data-de="Pauschalreisen" data-vi="Du Lịch Trọn Gói">Pauschalreisen</h3>
-              <p data-de="Sorgloser Urlaub – ich kümmere mich um alles von Flug bis Hotel." data-vi="Kỳ nghỉ không lo lắng — tôi lo tất cả từ vé máy bay đến khách sạn.">Sorgloser Urlaub – ich kümmere mich um alles.</p>
+              <p data-de="Sorgloser Urlaub – ich kümmere mich um alles von Flug bis Hotel." data-vi="Kỳ nghỉ không lo lắng — tôi lo tất cả từ vé máy bay đến khách sạn.">Sorgloser Urlaub – ich kümmere mich um alles von Flug bis Hotel.</p>
           </div>
           <div class="service-card">
               <h3 data-de="Kreuzfahrten" data-vi="Du Thuyền">Kreuzfahrten</h3>
-              <p data-de="Erkunden Sie Meere auf den luxuriösesten Schiffen der Welt." data-vi="Khám phá đại dương trên những con tàu sang trọng nhất.">Erkunden Sie Meere auf den luxuriösesten Schiffen.</p>
+              <p data-de="Erkunden Sie Meere auf den luxuriösesten Schiffen der Welt." data-vi="Khám phá đại dương trên những con tàu sang trọng nhất.">Erkunden Sie Meere auf den luxuriösesten Schiffen der Welt.</p>
           </div>
           <div class="service-card">
               <h3 data-de="Erlebnisreisen" data-vi="Hành Trình Khám Phá">Erlebnisreisen</h3>
@@ -563,7 +565,7 @@
           </div>
           <div class="service-card">
               <h3 data-de="WhatsApp-Beratung" data-vi="Tư Vấn WhatsApp">WhatsApp-Beratung</h3>
-              <p data-de="Unterstützung vor, während und nach der Reise – auch am Wochenende." data-vi="Hỗ trợ trước, trong và sau chuyến đi — kể cả cuối tuần.">Unterstützung vor, während und nach der Reise.</p>
+              <p data-de="Unterstützung vor, während und nach der Reise – auch am Wochenende." data-vi="Hỗ trợ trước, trong và sau chuyến đi — kể cả cuối tuần.">Unterstützung vor, während und nach der Reise – auch am Wochenende.</p>
           </div>
       </div>
   </section>
@@ -573,7 +575,7 @@
             <div>
                 <span class="section-label" data-de="Kontakt" data-vi="Liên Hệ">Kontakt</span>
                 <h2 data-de="Lassen Sie uns Planen" data-vi="Hãy Cùng Lên Kế Hoạch">Lassen Sie uns Planen</h2>
-                <p style="margin-bottom: 40px;" data-de="Bereit für Ihre nächste Reise? Kontaktieren Sie mich für eine kostenlose Beratung." data-vi="Sẵn sàng cho chuyến đi tiếp theo? Liên hệ để được tư vấn miễn phí.">Bereit für Ihre nächste Reise? Kontaktieren Sie mich.</p>
+                <p style="margin-bottom: 40px;" data-de="Bereit für Ihre nächste Reise? Kontaktieren Sie mich für eine kostenlose Beratung." data-vi="Sẵn sàng cho chuyến đi tiếp theo? Liên hệ để được tư vấn miễn phí.">Bereit für Ihre nächste Reise? Kontaktieren Sie mich für eine kostenlose Beratung.</p>
                 
                 <a href="tel:015227070181" class="contact-item">
                     <span class="contact-item-icon">📞</span>
@@ -613,7 +615,7 @@
                         <input type="text" class="form-input" id="fname" required data-placeholder-de="Max Mustermann" data-placeholder-vi="Nguyễn Văn A" placeholder="Max Mustermann">
                     </div>
                     <div class="form-group">
-                        <label data-de="Telefon / WhatsApp" data-vi="Điện Thoại">Telefon</label>
+                        <label data-de="Telefon / WhatsApp" data-vi="Điện Thoại">Telefon / WhatsApp</label>
                         <input type="tel" class="form-input" id="fphone" placeholder="+49 152...">
                     </div>
                     <div class="form-group">
